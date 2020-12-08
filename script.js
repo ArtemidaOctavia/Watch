@@ -10,7 +10,7 @@ function getStick () {
 function getBigStick () {
   let bigStick = document.createElement('span');
   bigStick.classList.add('stick');
-  bigStick.style.width = 8 + 'px';
+  bigStick.style.width = 5 + 'px';
   bigStick.style.height = 18 + 'px';
   bigStick.style.top = -5 + 'px';
   return bigStick;
@@ -19,22 +19,35 @@ function getBigStick () {
 function getDirection (deg) {
   let direction = document.createElement('div');
   direction.classList.add('direction');
-  direction.style.left = watch.clientWidth / 2  + 'px';
-  direction.style.top = watch.clientHeight / 2  + 'px';
+  direction.style.left = 300 / 2 + 'px';
+  direction.style.top = 300 / 2 + 'px';
   direction.style.transform = 'rotate(' + deg + 'deg' + ')';
   return direction;
+}
+
+function getNumbers (number, deg) {
+  let newNumber = document.createElement('span')
+  newNumber.textContent = number;
+  newNumber.classList.add('number');
+  newNumber.style.transform = 'rotate(' + (-deg + 180) + 'deg' + ')';
+  if (String(number).length > 1) {
+    newNumber.style.left = '-7px'
+  }
+  return newNumber
 }
 
 for (let i = 1; i <= 60; i++) {
   if (i === 1 || i % 5) {
     let stick = getStick();
-    let direction = getDirection(i * 6);
+    let direction = getDirection(i * 6 + 1);
     direction.appendChild(stick);
     watch.appendChild(direction)
   } else {
+    let number = getNumbers(i / 5, i * 6 + 1);
     let bigStick = getBigStick();
-    let direction = getDirection(i * 6);
+    let direction = getDirection(i * 6 + 1);
     direction.appendChild(bigStick);
+    direction.appendChild(number)
     watch.appendChild(direction)
   }
 }
@@ -43,8 +56,8 @@ function getArrow () {
   let arrow = document.createElement('div');
   arrow.id = 'arrow';
   arrow.classList.add('arrow');
-  arrow.style.left = watch.clientWidth / 2 + 2 + 'px';
-  arrow.style.top = watch.clientHeight / 2 + 2 + 'px';
+  arrow.style.left = watch.clientWidth / 2 + 'px';
+  arrow.style.top = watch.clientHeight / 2 + 'px';
   watch.appendChild(arrow);
 }
 
@@ -54,8 +67,8 @@ function getMediumArrow() {
   mediumArrow.classList.add('arrow');
   mediumArrow.style.width = 3 + 'px';
   mediumArrow.style.height = 100 + 'px';
-  mediumArrow.style.left = watch.clientWidth / 2 + 2 + 'px';
-  mediumArrow.style.top = watch.clientHeight / 2 + 2 + 'px';
+  mediumArrow.style.left = watch.clientWidth / 2 + 'px';
+  mediumArrow.style.top = watch.clientHeight / 2 + 'px';
   watch.appendChild(mediumArrow);
 }
 
@@ -65,8 +78,8 @@ function getBigArrow () {
   bigArrow.classList.add('arrow');
   bigArrow.style.width = 5 + 'px';
   bigArrow.style.height = 60 + 'px';
-  bigArrow.style.left = watch.clientWidth / 2 + 2 + 'px';
-  bigArrow.style.top = watch.clientHeight / 2 + 2 + 'px';
+  bigArrow.style.left = watch.clientWidth / 2 + 'px';
+  bigArrow.style.top = watch.clientHeight / 2 + 'px';
   watch.appendChild(bigArrow);
 }
 
