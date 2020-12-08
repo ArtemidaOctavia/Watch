@@ -25,16 +25,29 @@ function getDirection (deg) {
   return direction;
 }
 
+function getNumbers (number, deg) {
+  let newNumber = document.createElement('span')
+  newNumber.textContent = number;
+  newNumber.classList.add('number');
+  newNumber.style.transform = 'rotate(' + (-deg + 180) + 'deg' + ')';
+  if (String(number).length > 1) {
+    newNumber.style.left = '-7px'
+  }
+  return newNumber
+}
+
 for (let i = 1; i <= 60; i++) {
   if (i === 1 || i % 5) {
     let stick = getStick();
-    let direction = getDirection(i * 6 + 1.5);
+    let direction = getDirection(i * 6 + 1);
     direction.appendChild(stick);
     watch.appendChild(direction)
   } else {
+    let number = getNumbers(i / 5, i * 6 + 1);
     let bigStick = getBigStick();
-    let direction = getDirection(i * 6 + 1.5);
+    let direction = getDirection(i * 6 + 1);
     direction.appendChild(bigStick);
+    direction.appendChild(number)
     watch.appendChild(direction)
   }
 }

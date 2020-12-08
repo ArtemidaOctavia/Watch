@@ -3,17 +3,17 @@
     height: 300px;
     border-radius: 50%;
     border: solid black 5px;
-    position: fixed;
+    position: absolute;
 }
 
 .direction {
-    position: fixed;
+    position: absolute;
     height: 140px;
     transform-origin: left top;
 }
 
 .arrow {
-    position: fixed;
+    position: absolute;
     height: 130px;
     width: 2px;
     transform-origin: left top;
@@ -22,10 +22,18 @@
 }
 
 .stick {
-    position: fixed;
+    position: absolute;
     border-radius: 20%;
     width: 5px;
     height: 10px;
     background-color: black;
     margin-top: 142px;
+}
+
+.number {
+    position: absolute;
+    top: 115px;
+    font-size: 20px;
+    font-weight: bold;
+    left: -2px;
 }
